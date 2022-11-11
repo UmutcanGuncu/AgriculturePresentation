@@ -1,0 +1,61 @@
+﻿using BusinnesLayer.Abstract;
+using BusinnesLayer.ValidationRules;
+using EntityLayer.Concrete;
+using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+
+namespace AgriculturePresentation.Controllers
+{
+    public class ImageController : Controller
+    {
+        private readonly IImageService _imageService;
+
+        public ImageController(IImageService imageService)
+        {
+            _imageService = imageService;
+        }
+
+        public IActionResult Index()
+        {
+            var values = _imageService.GetListAll();
+            return View(values);
+        }
+        [HttpGet]
+        public IActionResult AddImage()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddImage(Image image)
+        {
+            
+           
+            _imageService.Insert(image);
+            return RedirectToAction("Index");
+        }
+        public IActionResult DeleteImage(int id)
+        {
+            var values = _imageService.GetById(id);
+            _imageService.Delete(values);
+            return RedirectToAction("Index");
+
+        }
+        [HttpGet]
+        public IActionResult UpdateImage(int id)
+        {
+            var values = _imageService.GetById(id);
+            _imageService.Update(values);
+            return View(values);
+        }
+        [HttpPost]
+        public IActionResult UpdateImage(Image image)
+        {
+
+            _imageService.Update(image);
+            return RedirectToAction("Index");
+
+
+        }
+    }
+}

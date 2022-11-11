@@ -1,0 +1,206 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Şahsimin Websitesi</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="In Harvest Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="~/web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/web/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/web/css/chocolat.css" type="text/css" media="screen">
+    <link href="~/web/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+    <link href="~/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="~/web/js/modernizr-2.6.2.min.js"></script>
+    <!--fonts-->
+    <link href="//fonts.googleapis.com/css?family=Josefin+Sans:400,100,100italic,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <!--//fonts-->
+
+</head>
+<body>
+
+    <!-- header-->
+    <div class="header">
+        <div class="container">
+            @await Component.InvokeAsync("_TopAdressPartial")
+
+            @await Component.InvokeAsync("_SocialPartial")
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- //header -->
+    <!--Slider-->
+    @await Component.InvokeAsync("_NavbarPartial")
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+        <!-- Modal1 -->
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>In Harvest</h4>
+                    <img src="~/web/images/banner1.jpg" alt=" " class="img-responsive">
+                    <h5>ENVIRONMENT & SUSTAINABILITY</h5>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //Modal1 -->
+    <!--//Slider-->
+    <!--//Header-->
+    @await Component.InvokeAsync("_AboutPartial")
+    <!-- about -->
+    <!-- //about-bottom -->
+    <!--sevices-->
+    @await Component.InvokeAsync("_ServicePartial")
+    <!--//sevices-->
+    <!-- team -->
+    @await Component.InvokeAsync("_TeamPartial")
+    <!-- //team -->
+    <!--blog -->
+    @await Component.InvokeAsync("_AnnouncementPartial")
+    <!-- //blog -->
+    <!-- Modal2 -->
+    <!-- //Modal4 -->
+    <!--/gallery-->
+    @await Component.InvokeAsync("_GalleryPartial")
+    <!--//gallery-->
+    <!--footer-->
+    <div class="contact-agile" id="contact">
+        <div class="container">
+            @await Component.InvokeAsync("_AdressPartial")
+            @await Html.PartialAsync("~/Views/Default/SendMessage.cshtml")
+
+        </div>
+    </div>
+    @await Component.InvokeAsync("_MapPartial")
+    <div class="bottom-social-w3ls w3ls-social-icons">
+        <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+        <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+        <a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a>
+        <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+    </div>
+     <!--/footer -->
+    <!-- js -->
+    <script type="text/javascript" src="~/web/js/jquery-2.1.4.min.js"></script>
+    <!--gallery-js -->
+    <script src="~/web/js/jquery.picEyes.js"></script>
+    <script>
+        $(function () {
+            //picturesEyes($('.demo li'));
+            $('.demo li').picEyes();
+        });
+    </script>
+    <!--//gallery-js -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/web/js/move-top.js"></script>
+    <script type="text/javascript" src="~/web/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <!--light-box-files -->
+    <script src="~/web/js/jquery.chocolat.js"></script>
+    <!--//light-box-files -->
+    <script type="text/javascript">
+        $(function () {
+            $('.gallery a').Chocolat();
+        });
+    </script>
+    <!-- //js -->
+    <script src="~/web/js/responsiveslides.min.js"></script>
+    <script>
+        // You can also use "$(window).load(function() {"
+        $(function () {
+            // Slideshow 3
+            $("#slider3").responsiveSlides({
+                auto: true,
+                pager: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+                before: function () {
+                    $('.events').append("<li>before event fired.</li>");
+                },
+                after: function () {
+                    $('.events').append("<li>after event fired.</li>");
+                }
+            });
+
+        });
+    </script>
+
+
+    <!--search-bar-->
+    <script src="~/web/js/main.js"></script>
+    <!--//search-bar-->
+    <!--tabs-->
+    <script src="~/web/js/easy-responsive-tabs.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true,   // 100% fit in a container
+                closed: 'accordion', // Start closed if in accordion view
+                activate: function (event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#tabInfo');
+                    var $name = $('span', $info);
+                    $name.text($tab.text());
+                    $info.show();
+                }
+            });
+            $('#verticalTab').easyResponsiveTabs({
+                type: 'vertical',
+                width: 'auto',
+                fit: true
+            });
+        });
+    </script>
+    <!--//tabs-->
+    <!-- smooth scrolling -->
+    <script type="~/web/text/javascript">
+        $(document).ready(function() {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+        $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+
+
+    <a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!-- //smooth scrolling -->
+    <script type="~/web/text/javascript" src="~/web/js/bootstrap-3.1.1.min.js"></script>
+
+</body>
+</html>
