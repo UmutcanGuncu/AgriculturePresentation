@@ -36,11 +36,11 @@ namespace AgriculturePresentation
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
             services.AddDbContext<AgricultureContext>();
-            
+
             services.AddControllersWithViews();
-            services.AddIdentity<IdentityUser,IdentityRole>().AddEntityFrameworkStores<AgricultureContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AgricultureContext>();
             services.ContainerDependencies();
             services.AddMvc(config =>
             {
@@ -53,7 +53,7 @@ namespace AgriculturePresentation
                 x =>
                 {
                     x.LoginPath = "/Login/Index";
-                    
+
                 }
                 );
 
@@ -84,8 +84,9 @@ namespace AgriculturePresentation
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Default}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute("default2", "girisYap", new {controller="Login",action="Index"});
             });
-            
+
         }
     }
 }
